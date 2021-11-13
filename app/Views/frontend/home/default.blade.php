@@ -1,7 +1,6 @@
 @include('frontend.components.header')
 <?php
 enqueue_script('scroll-magic-js');
-enqueue_style('image-gallery-css');
 global $post;
 ?>
 <div class="single-page single-home pb-5">
@@ -63,7 +62,7 @@ global $post;
                         <span class="count">{{ _n("[0::%s reviews][1::%s review][2::%s reviews]", $rate) }}</span>
                         {!! star_rating_render($post->rating) !!}
                     </div>
-                @endif                
+                @endif
                 <div class="featured-amenities mt-2 mb-2">
                     <div class="item">
                         <h4>{{__('Guests:')}}</h4>
@@ -94,83 +93,6 @@ global $post;
                 </div>
                 <h2 class="heading mt-3 mb-2">{{__('Detail')}}</h2>
                 {!! balanceTags(get_translate($post->post_content)) !!}
-                <?php
-                if (!empty($gallery)) {
-                    switch (count($gallery)) {
-                        case 1:
-                            break;
-                        case 2:
-                            echo '<h2 class="heading mt-3 mb-2">Gallery</h2>
-                            <div class="container">
-                                <div class="row gallery-grid">
-                                    <div class="col-6">
-                                        <a href="javascript:void(0)" style="height:auto;">
-                                            <img alt="img_gallery" src="'.get_attachment_url($gallery[0]).'">
-                                        </a>                            
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="javascript:void(0)" style="height:auto;">
-                                            <img alt="img_gallery" src="'.get_attachment_url($gallery[1]).'">
-                                        </a> 
-                                    </div>
-                                </div>
-                            </div>';
-                            break;
-                        case 3:
-                            echo '<h2 class="heading mt-3 mb-2">Gallery</h2>
-                            <div class="container">
-                                <div class="row gallery-grid">
-                                    <div class="col-8">
-                                        <a href="javascript:void(0)" style="height:calc(100% - 4px);">
-                                            <img alt="img_gallery" src="'.get_attachment_url($gallery[0]).'">
-                                        </a>                            
-                                    </div>
-                                    <div class="col-4">
-                                        <a href="javascript:void(0)">
-                                            <img alt="img_gallery" src="'.get_attachment_url($gallery[1]).'">
-                                        </a>
-                                        <a href="javascript:void(0)">
-                                            <img alt="img_gallery" src="'.get_attachment_url($gallery[2]).'">
-                                        </a>                                        
-                                    </div>
-                                </div>
-                            </div>';
-                            break;
-                        default:
-                            echo '<h2 class="heading mt-3 mb-2">Gallery</h2>
-                            <div class="container">
-                                <div class="row gallery-grid">
-                                    <div class="col-6">
-                                        <a href="javascript:void(0)" style="height:calc(100% - 4px);">
-                                            <img alt="img_gallery" src="'.get_attachment_url($gallery[0]).'">
-                                        </a>                            
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="col-12">
-                                            <a href="javascript:void(0)">
-                                                <img alt="img_gallery" src="'.get_attachment_url($gallery[1]).'">
-                                            </a>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <a href="javascript:void(0)">
-                                                    <img alt="img_gallery" src="'.get_attachment_url($gallery[2]).'">
-                                                </a>
-                                            </div>
-                                            <div class="col-6">
-                                                <a href="javascript:void(0)">
-                                                    <img alt="img_gallery" src="'.get_attachment_url($gallery[3]).'">
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>';
-                            break;
-                    }                    
-                }
-                ?>                
-                <div style="clear:both;disply:none;"></div>
                 <?php
                 $amenities = $post->tax_home_amenity;
                 ?>

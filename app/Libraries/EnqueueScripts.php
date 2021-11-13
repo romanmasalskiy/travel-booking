@@ -346,9 +346,6 @@ class EnqueueScripts
         $this->addScript('search-car-js', asset('js/search/car.js'));
         $this->addScript('search-experience-js', asset('js/search/experience.js'));
 
-        // customize css and js
-        $this->addStyle('image-gallery-css', asset('css/image-gallery.css'));
-
         do_action('hh_register_scripts', $this);
 
         if (file_exists(app_path('awe-custom/Assets/css/awe-custom.css')) && is_dir(public_path('awe-custom'))) {
